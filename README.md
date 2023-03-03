@@ -13,7 +13,7 @@ This will start a container :
     - Postgres Database
 
 ## Access APIs via Swagger
-`http://127.0.0.1:8000/swagger`
+`http://localhost:8000/api/schema/swagger-ui`
 
 
 ## Stop and remove containers on the local environment
