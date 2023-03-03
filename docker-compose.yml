@@ -17,6 +17,7 @@ services:
         build: 
           context: .
         container_name: autocompany
+        command: python manage.py runserver 0.0.0.0:8000
         restart: always
         volumes:
             - .:/app

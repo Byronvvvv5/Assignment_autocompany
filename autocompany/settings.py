@@ -90,7 +90,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'LABELA_assign.wsgi.application'
+WSGI_APPLICATION = 'autocompany.wsgi.application'
 
 
 # Database
