@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0!6)1!1gvl4^0)u)c9k6yvhrii*gt@yft9upik83#hdtz7=r-d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -98,8 +98,13 @@ WSGI_APPLICATION = 'LABELA_assign.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'autocompany',
+        'USER': 'autocompany',
+        'PASSWORD': 'autocompany',
+        'HOST': 'db',
+        'PORT': 5432,
+
     }
 }
 

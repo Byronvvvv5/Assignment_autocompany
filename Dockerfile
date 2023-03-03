@@ -1,5 +1,5 @@
 FROM python:3.10
-LABEL author='Label A'
+LABEL author='Byron'
 
 WORKDIR /app
 
@@ -12,17 +12,15 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir flake8==3.8.4 uWSGI
 
 # Regular Python dependencies
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r requirements.txt
 
 # Copy our codebase into the container
-COPY . .
-
-RUN ./manage.py collectstatic --noinput
+COPY . /app/
 
 # Ops Parameters
 ENV WORKERS=2
-ENV PORT=80
+ENV PORT=8000
 ENV PYTHONUNBUFFERED=1
 
 EXPOSE ${PORT}

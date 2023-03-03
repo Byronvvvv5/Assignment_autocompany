@@ -1,0 +1,32 @@
+version: '3'
+services:
+    db:
+        container_name: autocompany-db
+        image: postgres:latest
+        restart: always
+        ports:
+          - 5432:5432
+        volumes:
+          - pgdata:/var/lib/postgresql/data
+        environment:
+          POSTGRES_DB: autocompany
+          POSTGRES_USER: autocompany
+          POSTGRES_PASSWORD: autocompany
+
+    api:
+        build: 
+          context: .
+        container_name: autocompany
+        restart: always
+        volumes:
+            - .:/app
+        ports:
+            - "8000:8000"
+        depends_on:
+            - db
+        environment:
+          POSTGRES_DB: autocompany
+          POSTGRES_USER: autocompany
+          POSTGRES_PASSWORD: autocompany
+volumes:
+  pgdata:
